@@ -119,7 +119,7 @@ export default function Home() {
 
         {/* Title and button */}
         <div
-          className="absolute left-1/2 bottom-[15%] transform -translate-x-1/2 z-50 text-center w-full px-4"
+          className="absolute left-1/2 bottom-[15%] transform -translate-x-1/2 z-50 text-center w-full px-4 flex flex-col items-center"
           style={{
             transform: `translate(-50%, ${titlePosition}px)`,
             opacity: titleOpacity,
@@ -128,10 +128,24 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-bold mb-2 text-[#e0f2f7] tracking-wider">
             HackMol <span className="text-[#4fd1d9]">6.0</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-[#a7d4e2] tracking-widest">hack the realms</p>
-          <Button className="bg-[#1e5b6e] hover:bg-[#2a7d93] text-[#e0f2f7] border-2 border-[#4fd1d9] px-8 py-6 text-xl rounded-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(79,209,217,0.5)]">
+          <p className="text-xl md:text-2xl mb-8 text-[#a7d4e2] tracking-widest font-custom">hack the realms</p>
+          {/* <Button className="bg-[#1e5b6e] hover:bg-[#2a7d93] text-[#e0f2f7] border-2 border-[#4fd1d9] px-8 py-6 text-xl rounded-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(79,209,217,0.5)]">
             Coming Soon...
-          </Button>
+          </Button> */}
+          <div 
+            className="px-10 py-4 text-[#e0f2f7] text-2xl" 
+            style={{
+                background: `
+                    linear-gradient(135deg, transparent 8px, #1e5b6e 0) top left, 
+                    linear-gradient(-135deg, transparent 8px, #1e5b6e 0) top right, 
+                    linear-gradient(-45deg, transparent 8px, #1e5b6e 0) bottom right, 
+                    linear-gradient(45deg, transparent 8px, #1e5b6e 0) bottom left`,
+                backgroundSize: "50% 50%",
+                backgroundRepeat: "no-repeat"
+            }}
+        >
+          Comming Soon
+        </div>
         </div>
 
         {/* Scroll indicator */}
