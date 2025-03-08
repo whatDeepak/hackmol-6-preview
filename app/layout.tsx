@@ -1,9 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+// import { Inter } from "next/font/google"
+import localFont from "next/font/local";
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const berserker = localFont({
+  src: "../public/fonts/Berserker.otf",
+  variable: "--font-berserker",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "HackMol 6.0 - Hack the Realms",
@@ -18,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={berserker.variable}>{children}</body>
     </html>
   )
 }

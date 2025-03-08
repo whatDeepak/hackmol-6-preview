@@ -2,8 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Berserker';
+  src: url('/fonts/Berserker.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Berserker', Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
