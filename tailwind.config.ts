@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import { fontFamily } from 'tailwindcss/defaultTheme';
-
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export const darkMode = ["class"];
 export const content = [
@@ -22,7 +21,7 @@ export const theme = {
   },
   extend: {
     fontFamily: {
-      custom: ['Berserker', ...fontFamily.sans],
+      custom: ["Berserker", ...fontFamily.sans],
     },
     colors: {
       border: "hsl(var(--border))",
@@ -73,12 +72,23 @@ export const theme = {
         from: { height: "var(--radix-accordion-content-height)" },
         to: { height: "0" },
       },
+      "meteor": {
+        "0%": {
+          transform: "rotate(var(--angle)) translateX(0)",
+          opacity: "1",
+        },
+        "70%": { opacity: "1" },
+        "100%": {
+          transform: "rotate(var(--angle)) translateX(-500px)",
+          opacity: "0",
+        },
+      },
     },
     animation: {
       "accordion-down": "accordion-down 0.2s ease-out",
       "accordion-up": "accordion-up 0.2s ease-out",
+      "meteor": "meteor 5s linear infinite",
     },
   },
 };
 export const plugins = [require("tailwindcss-animate")];
-
