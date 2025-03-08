@@ -143,7 +143,7 @@ export default function Home() {
                 backgroundRepeat: "no-repeat"
             }}
         >
-          Comming Soon
+          Coming Soon
         </div>
         </div>
 
