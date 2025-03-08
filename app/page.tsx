@@ -152,7 +152,7 @@ export default function Home() {
         <div
           className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-56 aspect-square md:w-60 bg-[#FAFCE3] rounded-full"
           style={{
-            transform: `translate(-50%, calc(-50% + ${sunPosition}px)) rotate(${sunRotation}deg)`,
+            transform: `translate(-50%, calc(-80% + ${sunPosition}px)) rotate(${sunRotation}deg)`,
             filter: "drop-shadow(0 0 40px rgba(255, 255, 200, 0.5))",
             transition: "transform 0.1s ease-out",
           }}
@@ -190,8 +190,8 @@ export default function Home() {
             fill
             style={{ 
               objectFit: "contain",
-              scale: "1.8",
-              transform: `translateY(12%) translateX(-12%)`,
+              scale: "2.8",
+              transform: `translateY(10%) translateX(-13%)`,
             }}
           />
         </div>
