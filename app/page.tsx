@@ -82,7 +82,10 @@ export default function Home() {
         className="sticky top-0 h-screen w-full overflow-hidden"
       >
         {/* Sky background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#3a7d93] to-[#1e5b6e] z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3a7d93] to-[#1e5b6e] z-0"
+            style={{
+              background: "linear-gradient(180deg, #000 1%, #152126 21%, #385867 55%, #2A424D 100%)"
+            }}></div>
         <Meteors number={11} className="z-50 pointer-events-none " />
         {/* Stars */}
         {stars.map((star, index) => (
@@ -147,20 +150,13 @@ export default function Home() {
 
         {/* Sun with glow effect and rotation */}
         <div
-          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-32 h-32 md:w-80 md:h-80"
+          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-56 aspect-square md:w-60 bg-[#FAFCE3] rounded-full"
           style={{
             transform: `translate(-50%, calc(-50% + ${sunPosition}px)) rotate(${sunRotation}deg)`,
-            filter: "drop-shadow(0 0 15px rgba(255, 255, 200, 0.5))",
+            filter: "drop-shadow(0 0 40px rgba(255, 255, 200, 0.5))",
             transition: "transform 0.1s ease-out",
           }}
         >
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sun-xjH6b2pbXs5byYXYsBPjvYqEw0Uj2I.png"
-            alt="Sun"
-            fill
-            className="object-contain animate-pulse"
-            style={{ animationDuration: "4s" }}
-          />
         </div>
 
         {/* Back mountains with subtle hover */}
@@ -180,6 +176,26 @@ export default function Home() {
           />
         </div>
 
+        {/* Axe with circuit patterns and silhouette */}
+        <div
+          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-full h-full"
+          style={{
+            transform: `translate(-50%, calc(-50% + ${axePosition}px))`,
+            transition: "transform 0.1s ease-out",
+          }}
+        >
+          <Image
+            src="https://res.cloudinary.com/doipplfld/image/upload/v1741435828/hackmol6/cst4nupjeqdoyva827na.png"
+            alt="Axe with circuit patterns and silhouette"
+            fill
+            style={{ 
+              objectFit: "contain",
+              scale: "1.8",
+              transform: `translateY(12%) translateX(-12%)`,
+            }}
+          />
+        </div>
+
         {/* Front mountains with hover effect */}
         <div
           className="absolute bottom-0 left-0 right-0 z-30"
@@ -196,25 +212,6 @@ export default function Home() {
             className="w-full h-auto"
           />
         </div>
-        <div
-          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-[80%] max-w-3xl"
-          style={{
-            transform: `translate(-50%, calc(-50% + ${axePosition}px))`,
-            animation: "float 6s ease-in-out infinite",
-            transition: "transform 0.1s ease-out",
-          }}
-        >
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/axe-0Ao2xldLw3gR2ALTa4DDKm8aTYRY9Z.png"
-            alt="Axe with circuit patterns and silhouette"
-            width={800}
-            height={600}
-            className="w-full h-auto"
-            style={{
-              filter: "drop-shadow(0 0 10px rgba(79, 209, 217, 0.3))",
-            }}
-          />
-        </div>
 
         {/* Flying crows with wing flap animation */}
         <div
@@ -223,6 +220,7 @@ export default function Home() {
             transform: `translate(${crowPosition}px, ${-crowPosition * 0.5}px)`,
             animation: "fly 15s linear infinite",
             transition: "transform 0.1s ease-out",
+            filter: "invert(1)"
           }}
         >
           <Image
@@ -243,35 +241,35 @@ export default function Home() {
             transition: "transform 0.1s ease-out, opacity 0.1s ease-out",
           }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-2 text-[#e0f2f7] tracking-wider animate-textGlow">
+          <h1 className="text-5xl md:text-7xl font-bold mb-2 text-base-dark tracking-wider">
             HackMol <span className="text-[#4fd1d9]">6.0</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-[#a7d4e2] tracking-widest font-custom animate-fadeIn">
+          <p className="text-xl md:text-2xl mb-8 text-[#a8d5e3] tracking-widest">
             hack the realms
           </p>
 
           <div
-            className="px-10 py-4 text-[#e0f2f7] text-2xl relative overflow-hidden group"
+            className="px-12 py-3 text-[#e0f2f7] text-2xl relative overflow-hidden group"
             style={{
               background: `
-                    linear-gradient(135deg, transparent 8px, #1e5b6e 0) top left, 
-                    linear-gradient(-135deg, transparent 8px, #1e5b6e 0) top right, 
-                    linear-gradient(-45deg, transparent 8px, #1e5b6e 0) bottom right, 
-                    linear-gradient(45deg, transparent 8px, #1e5b6e 0) bottom left`,
+                    linear-gradient(135deg, transparent 5px, #08080834 0) top left, 
+                    linear-gradient(-135deg, transparent 5px, #08080834 0) top right, 
+                    linear-gradient(-45deg, transparent 5px, #08080834 0) bottom right, 
+                    linear-gradient(45deg, transparent 5px, #08080834 0) bottom left`,
               backgroundSize: "50% 50%",
               backgroundRepeat: "no-repeat",
             }}
           >
-            <span className="relative z-10 group-hover:text-[#4fd1d9] transition-colors duration-300">
-              Coming Soon
-            </span>
-            {/* Border animation */}
-            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#4fd1d9] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
-            <span className="absolute top-0 right-0 h-full w-[2px] bg-[#4fd1d9] transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-100"></span>
-            <span className="absolute top-0 left-0 w-full h-[2px] bg-[#4fd1d9] transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-200"></span>
-            <span className="absolute top-0 left-0 h-full w-[2px] bg-[#4fd1d9] transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-300"></span>
+              <span className="relative z-10 group-hover:text-[#4fd1d9] transition-colors duration-300">
+                Coming Soon
+              </span>
+            {/* </div> */}
+            <span className="absolute bottom-[6px] left-[6px] w-full h-[2px] bg-[#4fd1d9] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+            <span className="absolute top-[6px] right-[6px] h-full w-[2px] bg-[#4fd1d9] transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-100"></span>
+            <span className="absolute top-[6px] right-[6px] w-full h-[2px] bg-[#4fd1d9] transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-200"></span>
+            <span className="absolute bottom-[6px] left-[6px] h-full w-[2px] bg-[#4fd1d9] transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-300"></span>
             {/* Glitch effect on hover */}
-            <span className="absolute inset-0 bg-[#4fd1d9] opacity-0 group-hover:animate-glitch"></span>
+            {/* <span className="absolute inset-0 bg-[#4fd1d9] opacity-0 group-hover:animate-glitch"></span> */}
           </div>
         </div>
 

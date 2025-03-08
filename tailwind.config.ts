@@ -24,6 +24,10 @@ export const theme = {
       custom: ["Berserker", ...fontFamily.sans],
     },
     colors: {
+      // Custom colors by tarush
+      "base-dark": "#013641",
+
+      // defult colors
       border: "hsl(var(--border))",
       input: "hsl(var(--input))",
       ring: "hsl(var(--ring))",
