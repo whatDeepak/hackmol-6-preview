@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
@@ -119,7 +118,7 @@ export default function Home() {
 
         {/* Title and button */}
         <div
-          className="absolute left-1/2 bottom-[15%] transform -translate-x-1/2 z-50 text-center w-full px-4 flex flex-col items-center"
+          className="absolute font-custom left-1/2 bottom-[15%] transform -translate-x-1/2 z-50 text-center w-full px-4 flex flex-col items-center"
           style={{
             transform: `translate(-50%, ${titlePosition}px)`,
             opacity: titleOpacity,
