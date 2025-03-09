@@ -82,7 +82,7 @@ export default function Home() {
 
         {/* Sun with glow effect and rotation */}
         <div
-          className="absolute left-1/2 top-20 sm:top-20 md:top-22 lg:top-10 z-10 aspect-square w-44 sm:w-60 md:w-72 bg-[#FAFCE3] rounded-full"
+          className="absolute left-1/2 top-[10%] sm:top-20 md:top-22 lg:top-10 z-10 aspect-square w-44 sm:w-60 md:w-72 bg-[#FAFCE3] rounded-full"
           style={{
             transform: `translate(-50%, calc(50% + ${sunPosition}px))`,
             filter: "drop-shadow(0 0 40px rgba(255, 255, 200, 0.5))",
