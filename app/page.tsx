@@ -14,24 +14,11 @@ export default function Home() {
     { x: number; y: number; size: number; opacity: number; speed: number }[]
   >([]);
 
-  // Add comets state
-  const [comets, setComets] = useState<
-    {
-      x: number;
-      y: number;
-      size: number;
-      angle: number;
-      speed: number;
-      delay: number;
-      duration: number;
-    }[]
-  >([]);
-
   useEffect(() => {
     setIsMounted(true);
 
     // Generate random stars
-    const generatedStars = Array.from({ length: 400 }, () => ({
+    const generatedStars = Array.from({ length: 220 }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 3 + 1.5,
@@ -39,18 +26,6 @@ export default function Home() {
       speed: Math.random() * 0.05 + 0.01,
     }));
     setStars(generatedStars);
-
-    // Generate random comets (fewer than stars)
-    const generatedComets = Array.from({ length: 40 }, () => ({
-      x: Math.random() * 100,
-      y: Math.random() * 60, // Keep comets in upper part of sky
-      size: Math.random() * 3 + 2,
-      angle: Math.random() * 30 + 30, // 30-60 degree angle
-      speed: Math.random() * 2 + 3,
-      delay: Math.random() * 15, // Random delay for each comet
-      duration: Math.random() * 4 + 2, // Duration between 2-6 seconds
-    }));
-    setComets(generatedComets);
 
     const handleScroll = () => {
       if (parallaxRef.current) {
@@ -64,16 +39,14 @@ export default function Home() {
   }, []);
 
   // Calculate parallax positions based on scroll
-  const sunPosition = isMounted ? -20 + scrollY * 0.05 : -20;
-  const backMountainPosition = isMounted ? 0 + scrollY * 0.1 : 0;
-  const frontMountainPosition = isMounted ? 0 + scrollY * 0.2 : 0;
-  const axePosition = isMounted ? 0 + scrollY * 0.15 : 0;
+  const sunPosition = isMounted ? -20 + scrollY * -0.1 : -20;
+  const backMountainPosition = isMounted ? 0 + scrollY * 0.09 : 0;
+  const axePosition = isMounted ? 0 + scrollY * 0.22 : 0;
+  const frontMountainPosition = isMounted ? 0 + scrollY * 0.25 : 0;
   const crowPosition = isMounted ? scrollY * 0.3 : 0;
+
   const titleOpacity = isMounted ? 1 - scrollY * 0.002 : 1;
   const titlePosition = isMounted ? 0 + scrollY * 0.4 : 0;
-
-  // Sun rotation based on scroll
-  const sunRotation = isMounted ? scrollY * 0.05 : 0;
 
   return (
     <main className="relative h-[200vh] overflow-x-hidden bg-gradient-to-b from-[#1e5b6e] to-[#0a2a35]">
@@ -86,7 +59,7 @@ export default function Home() {
             style={{
               background: "linear-gradient(180deg, #000 1%, #152126 21%, #385867 55%, #2A424D 100%)"
             }}></div>
-        <Meteors number={11} className="z-50 pointer-events-none " />
+        <Meteors number={8} className="z-0 pointer-events-none " />
         {/* Stars */}
         {stars.map((star, index) => (
           <div
@@ -107,52 +80,11 @@ export default function Home() {
           />
         ))}
 
-        {/* Comets */}
-        {comets.map((comet, index) => (
-          <div
-            key={`comet-${index}`}
-            className="absolute z-5"
-            style={{
-              left: `${comet.x}%`,
-              top: `${comet.y}%`,
-              transform: `translateY(${scrollY * 0.03}px)`,
-              zIndex: 6,
-            }}
-          >
-            <div
-              className="relative"
-              style={{
-                animation: `cometMove ${comet.duration}s linear ${comet.delay}s infinite`,
-              }}
-            >
-              <div
-                className="absolute rounded-full bg-white"
-                style={{
-                  width: `${comet.size}px`,
-                  height: `${comet.size}px`,
-                  boxShadow: `0 0 ${comet.size * 2}px ${
-                    comet.size / 2
-                  }px rgba(255, 255, 255, 0.8)`,
-                }}
-              />
-              <div
-                className="absolute comet-tail"
-                style={{
-                  width: `${comet.size * 15}px`,
-                  height: `${comet.size}px`,
-                  transform: `rotate(${comet.angle}deg)`,
-                  transformOrigin: `0 50%`,
-                }}
-              />
-            </div>
-          </div>
-        ))}
-
         {/* Sun with glow effect and rotation */}
         <div
-          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-56 aspect-square md:w-60 bg-[#FAFCE3] rounded-full"
+          className="absolute left-1/2 top-14 md:top-32 lg:top-0 z-10 aspect-square w-36 sm:w-60 md:w-72 bg-[#FAFCE3] rounded-full"
           style={{
-            transform: `translate(-50%, calc(-80% + ${sunPosition}px)) rotate(${sunRotation}deg)`,
+            transform: `translate(-50%, calc(50% + ${sunPosition}px))`,
             filter: "drop-shadow(0 0 40px rgba(255, 255, 200, 0.5))",
             transition: "transform 0.1s ease-out",
           }}
@@ -178,20 +110,19 @@ export default function Home() {
 
         {/* Axe with circuit patterns and silhouette */}
         <div
-          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-full h-full"
+          className="absolute left-0 -top-16 sm:-top-12 md:top-0 transform z-20 w-full h-full"
           style={{
-            transform: `translate(-50%, calc(-50% + ${axePosition}px))`,
+            transform: `translate(0%, calc(${axePosition}px))`,
             transition: "transform 0.1s ease-out",
           }}
         >
           <Image
-            src="https://res.cloudinary.com/doipplfld/image/upload/v1741435828/hackmol6/cst4nupjeqdoyva827na.png"
+            src="https://res.cloudinary.com/doipplfld/image/upload/v1741532525/hackmol6/rzd8osl7lrua2drixhqb.png"
             alt="Axe with circuit patterns and silhouette"
             fill
             style={{ 
               objectFit: "contain",
-              scale: "2.8",
-              transform: `translateY(10%) translateX(-13%)`,
+              transform: `scale(2) translateY(-8%)`,
             }}
           />
         </div>
@@ -215,7 +146,7 @@ export default function Home() {
 
         {/* Flying crows with wing flap animation */}
         <div
-          className="absolute left-[10%] top-[20%] z-50 w-32 md:w-48"
+          className="absolute top-[8%] left-[2%] md:top-[15%] md:left-[5%] lg:left-[10%] lg:top-[20%] z-50 w-32 md:w-48"
           style={{
             transform: `translate(${crowPosition}px, ${-crowPosition * 0.5}px)`,
             animation: "fly 15s linear infinite",
@@ -234,22 +165,22 @@ export default function Home() {
 
         {/* Title and button */}
         <div
-          className="absolute font-custom left-1/2 bottom-[15%] transform -translate-x-1/2 z-50 text-center w-full px-4 flex flex-col items-center"
+          className="absolute font-custom left-1/2 bottom-20 md:bottom-10 lg:bottom-4 z-50 text-center w-full px-4 flex flex-col items-center gap-2"
           style={{
             transform: `translate(-50%, ${titlePosition}px)`,
             opacity: titleOpacity,
             transition: "transform 0.1s ease-out, opacity 0.1s ease-out",
           }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-2 text-base-dark tracking-wider">
+          <h1 className="text-4xl md:text-7xl font-bold text-base-dark tracking-wider">
             HackMol <span className="text-[#4fd1d9]">6.0</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-[#a8d5e3] tracking-widest">
+          <p className="text-md md:text-2xl text-[#a8d5e3] tracking-widest mb-4">
             hack the realms
           </p>
 
           <div
-            className="px-12 py-3 text-[#e0f2f7] text-2xl relative overflow-hidden group"
+            className="px-8 py-2 md:px-12 md:py-3 text-[#e0f2f7] text-sm md:text-2xl relative overflow-hidden group"
             style={{
               background: `
                     linear-gradient(135deg, transparent 5px, #08080834 0) top left, 
@@ -268,18 +199,17 @@ export default function Home() {
             <span className="absolute top-[6px] right-[6px] h-full w-[2px] bg-[#4fd1d9] transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-100"></span>
             <span className="absolute top-[6px] right-[6px] w-full h-[2px] bg-[#4fd1d9] transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-200"></span>
             <span className="absolute bottom-[6px] left-[6px] h-full w-[2px] bg-[#4fd1d9] transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-300"></span>
-            {/* Glitch effect on hover */}
-            {/* <span className="absolute inset-0 bg-[#4fd1d9] opacity-0 group-hover:animate-glitch"></span> */}
+          </div>
+
+          {/* Enhanced scroll indicator */}
+          <div className="animate-bounce mt-4">
+            <div className="w-8 h-12 rounded-full border-2 border-[#4fd1d9] flex justify-center relative overflow-hidden">
+              <div className="w-1 h-3 bg-[#4fd1d9] rounded-full mt-2 animate-scrollPulse"></div>
+              <div className="absolute inset-0 bg-[#4fd1d9] opacity-10 animate-glow"></div>
+            </div>
           </div>
         </div>
 
-        {/* Enhanced scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
-          <div className="w-8 h-12 rounded-full border-2 border-[#4fd1d9] flex justify-center relative overflow-hidden">
-            <div className="w-1 h-3 bg-[#4fd1d9] rounded-full mt-2 animate-scrollPulse"></div>
-            <div className="absolute inset-0 bg-[#4fd1d9] opacity-10 animate-glow"></div>
-          </div>
-        </div>
       </div>
 
       {/* Add CSS animations */}
