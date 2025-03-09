@@ -82,7 +82,7 @@ export default function Home() {
 
         {/* Sun with glow effect and rotation */}
         <div
-          className="absolute left-1/2 top-14 md:top-32 lg:top-0 z-10 aspect-square w-36 sm:w-60 md:w-72 bg-[#FAFCE3] rounded-full"
+          className="absolute left-1/2 top-28 sm:top-20 md:top-22 lg:top-10 z-10 aspect-square w-44 sm:w-60 md:w-72 bg-[#FAFCE3] rounded-full"
           style={{
             transform: `translate(-50%, calc(50% + ${sunPosition}px))`,
             filter: "drop-shadow(0 0 40px rgba(255, 255, 200, 0.5))",
@@ -172,15 +172,15 @@ export default function Home() {
             transition: "transform 0.1s ease-out, opacity 0.1s ease-out",
           }}
         >
-          <h1 className="text-4xl md:text-7xl font-bold text-base-dark tracking-wider">
+          <h1 className="text-4xl sm:text-7xl font-bold text-base-dark tracking-wider">
             HackMol <span className="text-[#4fd1d9]">6.0</span>
           </h1>
-          <p className="text-md md:text-2xl text-[#a8d5e3] tracking-widest mb-4">
+          <p className="text-md sm:text-2xl text-[#a8d5e3] tracking-widest mb-4">
             hack the realms
           </p>
 
           <div
-            className="px-8 py-2 md:px-12 md:py-3 text-[#e0f2f7] text-sm md:text-2xl relative overflow-hidden group"
+            className="px-8 py-2 sm:px-12 sm:py-3 text-[#e0f2f7] text-sm sm:text-2xl relative overflow-hidden group"
             style={{
               background: `
                     linear-gradient(135deg, transparent 5px, #08080834 0) top left, 
