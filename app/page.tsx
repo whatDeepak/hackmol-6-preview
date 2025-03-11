@@ -210,7 +210,12 @@ export default function Home() {
               }}
             >
               <span className="relative z-10 group-hover:text-[#4fd1d9] transition-colors duration-300">
-                Coming Soon
+                <div
+                  className="apply-button"
+                  data-hackathon-slug="YOUR-HACKATHON-SLUG"
+                  data-button-theme="light"
+                  style={{ height: "44px", width: "312px" }}
+                ></div>
               </span>
               {/* </div> */}
               <span className="absolute bottom-[6px] left-[6px] w-full h-[2px] bg-[#4fd1d9] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
@@ -400,12 +405,6 @@ export default function Home() {
           <Sponsors />
         </div>
       </main>
-      <div
-        className="apply-button"
-        data-hackathon-slug="YOUR-HACKATHON-SLUG"
-        data-button-theme="light"
-        style={{ height: "44px", width: "312px" }}
-      ></div>
     </>
   );
 }
