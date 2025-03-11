@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { Meteors } from "@/components/magicui/meteors";
 import Sponsors from "@/components/sponsors/Sponsors";
+import DevfolioButton from "@/components/DevfolioButton";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -40,17 +41,6 @@ export default function Home() {
   }, []);
 
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://apply.devfolio.co/v2/sdk.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   // Calculate parallax positions based on scroll
   const sunPosition = isMounted ? -20 + scrollY * -0.1 : -20;
   const backMountainPosition = isMounted ? 0 + scrollY * 0.09 : 0;
@@ -73,7 +63,7 @@ export default function Home() {
             className="absolute inset-0 bg-gradient-to-b from-[#3a7d93] to-[#1e5b6e] z-0"
             style={{
               background:
-                "linear-gradient(180deg, #000 1%, #152126 21%, #385867 55%, #2A424D 100%)",
+          "linear-gradient(180deg, #000 1%, #152126 21%, #385867 55%, #2A424D 100%)",
             }}
           ></div>
           <Meteors number={8} className="z-0 pointer-events-none " />
@@ -83,16 +73,15 @@ export default function Home() {
               key={index}
               className="absolute rounded-full bg-white animate-twinkle"
               style={{
-                left: `${star.x}%`,
-                top: `${star.y}%`,
-                width: `${star.size}px`,
-                height: `${star.size}px`,
-                opacity: star.opacity,
-                transform: `translateY(${scrollY * star.speed}px)`,
-                animation: `twinkle ${2 + Math.random() * 3}s infinite ${
-                  Math.random() * 2
-                }s`,
-                zIndex: 5,
+          left: `${star.x}%`,
+          top: `${star.y}%`,
+          width: `${star.size}px`,
+          height: `${star.size}px`,
+          opacity: star.opacity,
+          transform: `translateY(${scrollY * star.speed}px)`,
+          animation: `twinkle ${2 + Math.random() * 3}s infinite ${Math.random() * 2
+            }s`,
+          zIndex: 5,
               }}
             />
           ))}
@@ -137,8 +126,8 @@ export default function Home() {
               alt="Axe with circuit patterns and silhouette"
               fill
               style={{
-                objectFit: "contain",
-                transform: `scale(2) translateY(-8%)`,
+          objectFit: "contain",
+          transform: `scale(2) translateY(-8%)`,
               }}
             />
           </div>
@@ -164,9 +153,8 @@ export default function Home() {
           <div
             className="absolute top-[8%] left-[2%] md:top-[15%] md:left-[5%] lg:left-[10%] lg:top-[20%] z-50 w-32 md:w-48"
             style={{
-              transform: `translate(${crowPosition}px, ${
-                -crowPosition * 0.5
-              }px)`,
+              transform: `translate(${crowPosition}px, ${-crowPosition * 0.5
+          }px)`,
               animation: "fly 15s linear infinite",
               transition: "transform 0.1s ease-out",
               filter: "invert(1)",
@@ -197,38 +185,13 @@ export default function Home() {
               hack the realms
             </p>
 
-            <div
-              className="px-8 py-2 sm:px-12 sm:py-3 text-[#e0f2f7] text-sm sm:text-2xl relative overflow-hidden group"
-              style={{
-                background: `
-                    linear-gradient(135deg, transparent 5px, #08080834 0) top left, 
-                    linear-gradient(-135deg, transparent 5px, #08080834 0) top right, 
-                    linear-gradient(-45deg, transparent 5px, #08080834 0) bottom right, 
-                    linear-gradient(45deg, transparent 5px, #08080834 0) bottom left`,
-                backgroundSize: "50% 50%",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <span className="relative z-10 group-hover:text-[#4fd1d9] transition-colors duration-300">
-                <div
-                  className="apply-button"
-                  data-hackathon-slug="YOUR-HACKATHON-SLUG"
-                  data-button-theme="light"
-                  style={{ height: "44px", width: "312px" }}
-                ></div>
-              </span>
-              {/* </div> */}
-              <span className="absolute bottom-[6px] left-[6px] w-full h-[2px] bg-[#4fd1d9] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
-              <span className="absolute top-[6px] right-[6px] h-full w-[2px] bg-[#4fd1d9] transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-100"></span>
-              <span className="absolute top-[6px] right-[6px] w-full h-[2px] bg-[#4fd1d9] transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-200"></span>
-              <span className="absolute bottom-[6px] left-[6px] h-full w-[2px] bg-[#4fd1d9] transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 delay-300"></span>
-            </div>
+            <DevfolioButton />
 
             {/* Enhanced scroll indicator */}
             <div className="animate-bounce mt-4">
               <div className="w-8 h-12 rounded-full border-2 border-[#4fd1d9] flex justify-center relative overflow-hidden">
-                <div className="w-1 h-3 bg-[#4fd1d9] rounded-full mt-2 animate-scrollPulse"></div>
-                <div className="absolute inset-0 bg-[#4fd1d9] opacity-10 animate-glow"></div>
+          <div className="w-1 h-3 bg-[#4fd1d9] rounded-full mt-2 animate-scrollPulse"></div>
+          <div className="absolute inset-0 bg-[#4fd1d9] opacity-10 animate-glow"></div>
               </div>
             </div>
           </div>
