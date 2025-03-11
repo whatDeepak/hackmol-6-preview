@@ -23,9 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={berserker.variable}>{children}</body>
+      <body className={berserker.variable}>
+        {children}
+        <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
+      </body>
     </html>
-  )
+  );
 }
 
 
