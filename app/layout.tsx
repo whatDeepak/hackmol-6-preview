@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={berserker.variable}>
         {children}
         <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>

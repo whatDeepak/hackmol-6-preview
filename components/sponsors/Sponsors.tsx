@@ -55,16 +55,13 @@ export default function Sponsors() {
         ))}
             </span>
             <h2 className="text-5xl font-semibold font-custom">
-                <span className="text-[#00D4FF]">Previous</span> Sponsors
+                Sponsors
                 <div className="w-full h-[1px] -mt-[3px]" style={{ background: "linear-gradient(to right, #00D4FF00 0%, #00D4FFF0 15%, #00D4FF 50%, #00D4FFF0 85%, #00D4FF00 100%)" }}></div>
             </h2>
 
             <div className="flex items-center justify-center flex-wrap gap-20 px-40">
-                <img src="/Group.png" className="h-16 object-contain" alt="sponsors" />
-                <img src="/Group.png" className="h-16 object-contain" alt="sponsors" />
-                <img src="/Group.png" className="h-16 object-contain" alt="sponsors" />
-                <img src="/Group.png" className="h-16 object-contain" alt="sponsors" />
-                <img src="/Group.png" className="h-16 object-contain" alt="sponsors" />
+                <img src="/Devfolio.png" className="h-16 object-contain" alt="DEVFOLIO LOGO" />
+                <img src="/ethindia.png" className="h-16 object-contain" alt="ETHINDIA LOGO" />
             </div>
         </div>
     )
