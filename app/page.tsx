@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { Meteors } from "@/components/magicui/meteors";
+import Sponsors from "@/components/sponsors/Sponsors";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -378,6 +379,10 @@ export default function Home() {
           animation: glitch 2s ease-in-out;
         }
       `}</style>
+
+      <div className="relative h-screen flex items-center justify-center bg-[#0a2a35] text-white">
+        <Sponsors />
+      </div>
     </main>
   );
 }
