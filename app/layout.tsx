@@ -10,7 +10,7 @@ const berserker = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HackMol 6.0 - Punjab's Biggest Hackathon",
+  title: "HackMol 6.0 - Hack the Realms",
   description:
     "HackMol 6.0 is Punjab's premier 36-hour hackathon, bringing together top developers, innovators, and tech enthusiasts to solve real-world challenges in AI, Web3, IoT, and more. Compete for ₹2L+ in prizes, network with industry experts, and showcase your skills in a high-energy, hybrid-format competition.",
   keywords: [
